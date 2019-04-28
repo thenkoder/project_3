@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     private var red : CGFloat = 0.00
     private var green : CGFloat = 0.00
     private var blue : CGFloat = 0.00
@@ -145,6 +145,9 @@ class ViewController: UIViewController {
         return strings
     }
     
+    func i(){
+        print("hello")
+    }
     
 }
 
