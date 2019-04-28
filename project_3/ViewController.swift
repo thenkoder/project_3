@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     private var green : CGFloat = 0.00
     private var blue : CGFloat = 0.00
     
-    private var redNumb = String(Float(0.00))
+//    private var redNumb = String(Float(0.00))
+    private var redNumb = "0.00"
     private var greenNumb = String(Float(0.00))
     private var blueNumb = String(Float(0.00))
     
@@ -145,8 +146,16 @@ class ViewController: UIViewController {
         return strings
     }
     
-    func i(){
-        print("hello")
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowVladimir" {
+            
+                let detailsVC = segue.destination as! VladimirViewController
+                detailsVC.redFloat = red
+                detailsVC.greenFloat = green
+                detailsVC.blueFloat = blue
+        }
     }
     
 }

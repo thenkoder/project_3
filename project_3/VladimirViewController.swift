@@ -10,7 +10,11 @@ import UIKit
 
 class VladimirViewController: UIViewController {
     
-    var red: Float = 0.76 {
+    var redFloat: CGFloat = 0.0
+    var greenFloat: CGFloat = 1.0
+    var blueFloat: CGFloat = 0.0
+    
+    private var red: Float = 0.76 {
         didSet {
             redLabel.text = String(format: "%.2f", red)
             redSlider.value = red
@@ -18,7 +22,7 @@ class VladimirViewController: UIViewController {
             colorView.backgroundColor = viewColor
         }
     }
-    var green: Float = 0.76 {
+    private var green: Float = 0.76 {
         didSet {
             greenLabel.text = String(format: "%.2f", green)
             greenSlider.value = green
@@ -26,7 +30,7 @@ class VladimirViewController: UIViewController {
             colorView.backgroundColor = viewColor
         }
     }
-    var blue: Float = 0.76 {
+    private var blue: Float = 0.76 {
         didSet {
             blueLabel.text = String(format: "%.2f", blue)
             blueSlider.value = blue
@@ -72,12 +76,11 @@ class VladimirViewController: UIViewController {
     }
     
     //MARK: UITextFieldDelegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+    
+//    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let string = textField.text {
             if let number = Float(string) {
@@ -110,10 +113,10 @@ class VladimirViewController: UIViewController {
         resetButton.layer.borderWidth = 1
         resetButton.layer.borderColor = UIColor.white.cgColor
         
-        red = 0
-        green = 1
-        blue = 0
-        
+        red = Float(redFloat)
+        green = Float(greenFloat)
+        blue = Float(blueFloat)
+                
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
