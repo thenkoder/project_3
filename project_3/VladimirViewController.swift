@@ -16,25 +16,25 @@ class VladimirViewController: UIViewController {
     
     private var red: Float = 0.76 {
         didSet {
-            redLabel.text = String(format: "%.2f", red)
+            redLabel.text = floatToString(argument: red)
             redSlider.value = red
-            redTextField.text = String(format: "%.2f", red)
+            redTextField.text = redLabel.text
             colorView.backgroundColor = viewColor
         }
     }
     private var green: Float = 0.76 {
         didSet {
-            greenLabel.text = String(format: "%.2f", green)
+            greenLabel.text = floatToString(argument: green)
             greenSlider.value = green
-            greenTextField.text = String(format: "%.2f", green)
+            greenTextField.text = greenLabel.text
             colorView.backgroundColor = viewColor
         }
     }
     private var blue: Float = 0.76 {
         didSet {
-            blueLabel.text = String(format: "%.2f", blue)
+            blueLabel.text = floatToString(argument: blue)
             blueSlider.value = blue
-            blueTextField.text = String(format: "%.2f", blue)
+            blueTextField.text = blueLabel.text
             colorView.backgroundColor = viewColor
         }
     }
@@ -92,9 +92,9 @@ class VladimirViewController: UIViewController {
         } else {
             showAlert(title: "Что то не так", message: "Число должно быть от нуля до единицы")
             switch textField.tag {
-            case 0: redTextField.text = String(format: "%.2f", red)
-            case 1: greenTextField.text = String(format: "%.2f", green)
-            case 2: blueTextField.text = String(format: "%.2f", blue)
+            case 0: redTextField.text = floatToString(argument: red)
+            case 1: greenTextField.text = floatToString(argument: green)
+            case 2: blueTextField.text = floatToString(argument: blue)
             default: break
             }
         }
@@ -105,7 +105,9 @@ class VladimirViewController: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
-    
+    func floatToString(argument: Float) -> String {
+        return String(format: "%.2f", argument)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         redTextField.delegate = self
