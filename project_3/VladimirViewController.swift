@@ -91,9 +91,19 @@ class VladimirViewController: UIViewController {
                     case 2: blue = number
                     default: break
                     }
+                } else {
+                    showAlert(title: "Что то не так", message: "Число должно быть от нуля до единицы")
                 }
+            } else {
+                showAlert(title: "Что то не так", message: "Не удалось извлечь число")
             }
         }
+    }
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
     
     override func viewDidLoad() {
@@ -116,7 +126,23 @@ class VladimirViewController: UIViewController {
         red = Float(redFloat)
         green = Float(greenFloat)
         blue = Float(blueFloat)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
                 
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - self.view.frame.height + resetButton.frame.origin.y + resetButton.frame.height + 10
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
