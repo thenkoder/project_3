@@ -265,10 +265,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-Xb-dBR">
-                                        <rect key="frame" x="82.5" y="0.0" width="167.5" height="112"/>
+                                        <rect key="frame" x="82.5" y="0.0" width="151.5" height="112"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rY3-O5-mHB">
-                                                <rect key="frame" x="-2" y="0.0" width="171.5" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="155.5" height="31"/>
                                                 <color key="tintColor" red="0.9192116857" green="0.1822305706" blue="0.074337886219999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
                                                     <action selector="redSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="DRe-fK-tK2"/>
@@ -276,7 +276,7 @@
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yUe-O2-bzj">
-                                                <rect key="frame" x="-2" y="41" width="171.5" height="31"/>
+                                                <rect key="frame" x="-2" y="41" width="155.5" height="31"/>
                                                 <color key="tintColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="greenSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="sJb-xS-Abd"/>
@@ -284,7 +284,7 @@
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bXC-38-JZ5">
-                                                <rect key="frame" x="-2" y="82" width="171.5" height="31"/>
+                                                <rect key="frame" x="-2" y="82" width="155.5" height="31"/>
                                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="blueSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZU9-9V-DYc"/>
@@ -294,10 +294,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P6H-xf-Vqs">
-                                        <rect key="frame" x="258" y="0.0" width="32" height="112"/>
+                                        <rect key="frame" x="242" y="0.0" width="48" height="112"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Lh-Tc-WDK">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -306,7 +306,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb7-6I-Hf0">
-                                                <rect key="frame" x="0.0" y="44" width="32" height="30"/>
+                                                <rect key="frame" x="0.0" y="44" width="48" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -315,7 +315,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kC0-io-ibm">
-                                                <rect key="frame" x="0.0" y="82" width="32" height="30"/>
+                                                <rect key="frame" x="0.0" y="82" width="48" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -324,6 +324,9 @@
                                                 </connections>
                                             </textField>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="jVi-9h-MRw"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -332,7 +335,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="UVO-Y9-oRq"/>
                                 </constraints>
-                                <state key="normal" title="Обнулить"/>
+                                <state key="normal" title="Обнулить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="resetAction:" destination="mvo-SP-GA9" eventType="touchUpInside" id="hrM-1f-Ezs"/>
                                 </connections>

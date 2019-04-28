@@ -82,20 +82,20 @@ class VladimirViewController: UIViewController {
 //        return true
 //    }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let string = textField.text {
-            if let number = Float(string) {
-                if (0 <= number) && (number <= 1) {
-                    switch textField.tag {
-                    case 0: red = number
-                    case 1: green = number
-                    case 2: blue = number
-                    default: break
-                    }
-                } else {
-                    showAlert(title: "Что то не так", message: "Число должно быть от нуля до единицы")
-                }
-            } else {
-                showAlert(title: "Что то не так", message: "Не удалось извлечь число")
+        if let string = textField.text, let number = Float(string), (0 <= number) && (number <= 1) {
+            switch textField.tag {
+            case 0: red = number
+            case 1: green = number
+            case 2: blue = number
+            default: break
+            }
+        } else {
+            showAlert(title: "Что то не так", message: "Число должно быть от нуля до единицы")
+            switch textField.tag {
+            case 0: redTextField.text = String(format: "%.2f", red)
+            case 1: greenTextField.text = String(format: "%.2f", green)
+            case 2: blueTextField.text = String(format: "%.2f", blue)
+            default: break
             }
         }
     }
@@ -127,10 +127,37 @@ class VladimirViewController: UIViewController {
         green = Float(greenFloat)
         blue = Float(blueFloat)
         
+        addDoneButtonTo(redTextField)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
                 
     }
+    // Метод для отображения кнопки "Готово" на цифровой клавиатуре
+    private func addDoneButtonTo(_ textField: UITextField) {
+        
+        let keyboardToolbar = UIToolbar()
+        textField.inputAccessoryView = keyboardToolbar
+        keyboardToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title:"Done",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(didTapDone))
+        
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        
+        
+        
+        keyboardToolbar.items = [flexBarButton, doneButton]
+    }
+    
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
