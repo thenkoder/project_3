@@ -422,22 +422,6 @@
             </objects>
             <point key="canvasLocation" x="1744" y="96"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="j5O-JM-yU8">
-            <objects>
-                <viewController id="L84-aE-YUp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HhX-D8-G7J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Sy9-mM-gBn"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bT9-Pk-p5u"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5yb-5M-xbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3266.25" y="860"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfa-23-gka">
             <objects>
